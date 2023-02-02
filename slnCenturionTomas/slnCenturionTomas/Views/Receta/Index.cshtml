@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SistemaWebMisRecetas.Models.Receta>
+
+@{
+    ViewData["Title"] = "Recetas";
+}
+
+@section SideBar{
+    <div class="other-views">
+        @Html.ActionLink("Armar una receta", "Create", "Receta")
+        @Html.ActionLink("Volver al inicio", "Index", "Home")
+    
+    </div>
+}
+
+        <h1>Recetas</h1>
+        <div class="conteiner-items">
+            
+            @foreach (var item in Model)
+            {
+            <div>
+                <h1>
+                   Titulo: @Html.ActionLink(item.Titulo, "Details", "Receta", new { id = item.Id })
+                </h1>
+                <p>
+                    Categoria: @Html.DisplayFor(receta => item.Categoria)
+                </p>
+                <p>
+                    Ingredientes: @Html.DisplayFor(receta => item.Ingredientes)
+                </p>
+                <p>
+                    Instrucciones: @Html.DisplayFor(receta => item.Instrucciones)
+                </p>
+
+                <p>
+                    NombreAutor: @Html.ActionLink(item.NombreAutor, "IndexByNombreAutor", "Receta", new { autor = item.NombreAutor })
+                </p>
+                <p>
+                    ApellidoAutor : @Html.ActionLink(item.ApellidoAutor, "IndexByApellidoAutor", "Receta", new { autor = item.ApellidoAutor })
+                </p>
+                <p>
+                    EdadAutor: @Html.DisplayFor(receta => item.EdadAutor)
+                </p>
+                <p>
+                    Email: @Html.DisplayFor(receta => item.EmailAutor)
+                </p>
+
+                @Html.ActionLink("Eliminar", "Delete", "Receta", new { id = item.Id })
+                @Html.ActionLink("Editar", "Edit", "Receta", new { id = item.Id })
+            </div>
+}
+            </div>

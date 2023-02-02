@@ -1,0 +1,67 @@
+﻿@model SistemaWebMisRecetas.Models.Receta
+
+@{
+    ViewData["Title"] = $"{Model.Titulo}";
+}
+@section SideBar{
+    <div>
+        @Html.ActionLink("Crear una Receta", "Create", "Receta")
+        @Html.ActionLink("Volver al inicio", "Index", "Home")
+        @Html.ActionLink("Volver a recetas", "Index", "Receta")
+    </div>
+}
+
+
+<div>
+
+    <h1>
+        @Html.DisplayFor(model => model.Titulo)
+    </h1>
+
+    <p>
+
+        @Html.DisplayNameFor(model => model.Categoria):
+        @Html.DisplayFor(model => model.Categoria)
+
+    </p>
+    <p>
+
+        @Html.DisplayNameFor(model => model.Ingredientes):
+        @Html.DisplayFor(model => model.Ingredientes)
+
+    </p>
+    <p>
+
+        @Html.DisplayNameFor(model => model.Instrucciones):
+        @Html.DisplayFor(model => model.Instrucciones)
+
+    </p>
+    <p>
+
+        @Html.DisplayNameFor(model => model.NombreAutor):
+        @Html.DisplayFor(model => model.NombreAutor)
+
+    </p>
+    <p>
+
+        @Html.DisplayNameFor(model => model.ApellidoAutor):
+        @Html.DisplayFor(model => model.ApellidoAutor)
+
+    </p>
+    <p>
+
+        @Html.DisplayNameFor(model => model.EdadAutor):
+        @Html.DisplayFor(model => model.EdadAutor)
+
+    </p>
+    <p>
+
+        @Html.DisplayNameFor(model => model.EmailAutor):
+        @Html.DisplayFor(model => model.EmailAutor)
+
+    </p>
+
+
+    @Html.ActionLink("Volver a la lista de recetas", "Index")
+
+</div>
